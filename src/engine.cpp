@@ -20,6 +20,8 @@ namespace gpr5300
         Begin();
         bool isOpen = true;
 
+
+
         std::chrono::time_point<std::chrono::system_clock> clock = std::chrono::system_clock::now();
         while (isOpen)
         {
@@ -70,7 +72,7 @@ namespace gpr5300
 
             //Generate new ImGui frame
             ImGui_ImplOpenGL3_NewFrame();
-            ImGui_ImplSDL2_NewFrame(window_);
+            ImGui_ImplSDL2_NewFrame();
             ImGui::NewFrame();
 
             scene_->DrawImGui();
@@ -84,6 +86,7 @@ namespace gpr5300
 
     void Engine::Begin()
     {
+
 
         SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMECONTROLLER);
         // Set our OpenGL version.
@@ -132,6 +135,8 @@ namespace gpr5300
         ImGui::StyleColorsClassic();
         ImGui_ImplSDL2_InitForOpenGL(window_, glRenderContext_);
         ImGui_ImplOpenGL3_Init("#version 300 es");
+
+
 
         scene_->Begin();
     }
